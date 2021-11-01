@@ -4,6 +4,7 @@
 """Module de résolution du projet Poly#.
 """
 
+
 def solve(challenge):
     """Résout un challenge donné.
     """
