@@ -13,14 +13,6 @@ from models.service import Service
 
 def parse_challenge(filename: str) -> object:
     """Lit un fichier de challenge et extrait les informations nécessaires.
-
-    10 2 5 3 2 5 -> lire les nombres puis les traduire en objets (séparer par 1 espace)
-    10 10 days,
-    2 2 engineers,
-    5 5 services,
-    3 3 binaries
-    2 2 features,
-    5 we need 5 days to create a new binary.
     """
     with open(filename, 'r') as outfile:
         content = outfile.read()
