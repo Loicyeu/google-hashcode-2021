@@ -6,7 +6,7 @@
 
 # Structurez votre code en modules pour améliorer la compréhension et
 # faciliter le travail collaboratif
-from parser import parse_challenge
+from polyparser import parse_challenge
 from solver import solve
 
 if __name__ == "__main__":

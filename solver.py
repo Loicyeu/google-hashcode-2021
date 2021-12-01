@@ -10,7 +10,8 @@ from models.feature import Feature
 def solve(challenge):
     """Résout un challenge donné.
     """
-    return a_solution   # undefined
+    pass
+    # return a_solution   # undefined
 
 
 def get_ratios(l: list[Feature]):

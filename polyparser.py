@@ -35,7 +35,7 @@ def parse_challenge(filename: str) -> object:
         if len(line) != 2:
             break
         else:
-            service = Service(line[0])
+            service = Service(line[0], challenge.binaries[int(line[1])])
             services.append(service)
             challenge.binaries[int(line[1])].services.append(service)
 
@@ -51,4 +51,4 @@ def parse_challenge(filename: str) -> object:
 
 
 if __name__ == '__main__':
-    parse_challenge("example.txt")
+    parse_challenge("challenge.txt")
