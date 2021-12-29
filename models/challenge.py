@@ -1,4 +1,5 @@
 class Challenge:
+
     def __init__(self, days: int, engineers: int, nb_features: int, nb_services: int, days_for_binary: int):
         from models.binary import Binary
         self.days = days
@@ -10,10 +11,10 @@ class Challenge:
 
     def __str__(self):
         string = f"\nChallenge\n" \
-               f" - Days : {self.days}\n" \
-               f" - Engineers : {self.engineers}\n" \
-               f" - Days for bin : {self.days_for_binary}" \
-               f"{self.binaries}"
+                 f" - Days : {self.days}\n" \
+                 f" - Engineers : {self.engineers}\n" \
+                 f" - Days for bin : {self.days_for_binary}" \
+                 f"{self.binaries}"
         string = string.replace("[", '')
         string = string.replace("]", '')
         string = string.replace(",", '')

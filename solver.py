@@ -3,23 +3,30 @@
 
 """Module de résolution du projet Poly#.
 """
-
+from models.challenge import Challenge
+from models.engineer import Engineer
 from models.feature import Feature
+from utils import FeatureRatio
 
 
-def solve(challenge):
-    """Résout un challenge donné.
+def solve(challenge: Challenge, features: FeatureRatio):
     """
-    pass
-    # return a_solution   # undefined
+    Solve a given challenge.
+
+    :param challenge: The given challenge
+    :param features: a sorted list of features
+    """
+
+    engineers = {}
+    for engineer in range(challenge.engineers):
+        engineers[engineer] = Engineer(engineer, challenge.days_for_binary)
+
+    feature: Feature = features[0][0]
+    for bin in feature.get_binaries():
+        engineers[1].implement(feature, bin)
+
+    return None
 
 
-def get_ratios(l: list[Feature]):
-    """
-    Return a list of features sorted by the ratio of daily users by difficulty.
-    The first one will be super interesting to implement, the last one will be meh
-    :param l: the list of features to implement
-    :return: a list of the features sorted
-    """
-    # For every feature in l, order it by the ratio, the bigger being the first one
-    return sorted([(f, f.daily_users / f.difficulty) for f in l], key=lambda feat: feat[1], reverse=True)
+if __name__ == '__main__':
+    solve(Challenge(100, 2, 1, 1, 1), [])

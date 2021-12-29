@@ -1,5 +1,3 @@
-from typing import Optional
-
 from models.binary import Binary
 from models.feature import Feature
 from models.service import Service
@@ -10,45 +8,41 @@ class Engineer:
     Ne peut pas être interrompu lors d'une de ses taches
     """
 
-    def __init__(self, id):
+    def __init__(self, id, days_for_binary):
         self.id: int = id
-        self.free: bool = True
-        self.feature: Optional[Feature] = None
-        self.free_in: int = 0
+        self.days_for_binary = days_for_binary
+        self.days_past = 0
 
     def implement(self, feature: Feature, binary: Binary):
         """
-        Commence la réalisation d'un binaire ssi l'ingé est libre.
+        Implement a feature in a specified binary on its services.
 
-        :param feature: La feature a implémenter
-        :param binary: Le binaire sur lequel faire la feature.
-        :return:
+        :param feature: The feature to implement
+        :param binary: The binary where to implement the feature.
         """
-        pass
+        self.days_past = feature.difficulty + len(binary.services) + 0  # 0 -> ingineers on the binary
+        feature.implemented_services = set.union(feature.implemented_services, binary.services)
 
     def move_service(self, service: Service, binary: Binary):
         """
-        Déplace le service de son binaire vers le binaire cible
+        Move the service from its binary to another binary.
 
-        :param service: Le service a déplacer
-        :param binary: Le binaire cible
-        :return:
+        :param service: The service to move.
+        :param binary: The targeted binary.
         """
-        pass
+        old_binary = service.binary
+        self.days_past = max(len(old_binary.services), len(binary.services))
+        service.binary = binary
+        old_binary.services.remove(service)
 
-    def create_binary(self):
+    def create_binary(self) -> Binary:
         """
-        Créer un nouveau binaire.
+        Create a new Binary
 
-        :return:
+        :return: The newly created binary
         """
-        pass
+        self.days_past += self.days_for_binary
+        return Binary(None)
 
-    def wait(self, days: int) -> bool:
-        if self.free:
-            self.free = False
-            self.free_in = days
-        else:
-            raise Exception(f"L'ingénieur {self.id} est déjà occupé")
-        # TODO: écrire dans le fichier de sortie
-        return True
+    def wait(self, days: int):
+        self.days_past += days

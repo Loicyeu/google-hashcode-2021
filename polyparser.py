@@ -3,7 +3,6 @@
 
 """Module de parsing des fichiers d'entrée pour la mise en oeuvre du projet Poly#.
 """
-from pprint import pprint
 
 from models.binary import Binary
 from models.challenge import Challenge
@@ -11,7 +10,7 @@ from models.feature import Feature
 from models.service import Service
 
 
-def parse_challenge(filename: str) -> object:
+def parse_challenge(filename: str) -> tuple[Challenge, list[Feature]]:
     """Lit un fichier de challenge et extrait les informations nécessaires.
     """
     with open(filename, 'r') as outfile:
@@ -39,15 +38,18 @@ def parse_challenge(filename: str) -> object:
             services.append(service)
             challenge.binaries[int(line[1])].services.append(service)
 
+    features: list[Feature] = []
+
     for j in range(i, len(line_list), 2):  # pas de 2
         line1 = line_list[j]
         line2 = line_list[j + 1]
         feature: Feature = Feature(line1[0], int(line1[2]), int(line1[3]))
+        features.append(feature)
         for k in line2:
             service = (list(filter(lambda s: s.name == k, services)))[0]  # s est le nom d'un service
             service.features.append(feature)
     print(challenge)
-    return challenge
+    return challenge, features
 
 
 if __name__ == '__main__':

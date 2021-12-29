@@ -4,10 +4,9 @@
 """Module principal pour la mise en oeuvre du projet Poly#.
 """
 
-# Structurez votre code en modules pour améliorer la compréhension et
-# faciliter le travail collaboratif
 from polyparser import parse_challenge
 from solver import solve
+from utils import get_ratios
 
 if __name__ == "__main__":
     # On fournit ici un exemple permettant de passer un simple
@@ -21,4 +20,5 @@ if __name__ == "__main__":
                         metavar="challenge.txt")
     args = parser.parse_args()
 
-    solve(parse_challenge(args.challenge))
+    challenge, features = parse_challenge(args.challenge)
+    solve(challenge, get_ratios(features))
