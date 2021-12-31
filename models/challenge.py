@@ -24,21 +24,25 @@ class Challenge:
         string = string.replace(",", '')
         return string
 
-    def get_score(self, features: list[Feature], engineers: list[Engineer]) -> int:
-        for f in features:
-            print(f"Feature {f.name} is implemented in ({len(f.get_implemented_services())}):")
-            for ss in f.get_implemented_services():
-                print(f"\t - {ss.name}")
-            print(f"Feature {f.name} is not implemented in ({len(f.get_remaining_services())}):")
-            for ss in f.get_remaining_services():
-                print(f"\t - {ss.name}")
-        print()
-        for e in engineers:
-            print(f"Engineer {e.id} finished in {e.days_past} days.")
-            for a in e.actions:
-                print(f"\t - {a}")
+    def get_score(self, features: list[Feature]) -> int:
         score = 0
         for feature in features:
             if len(feature.get_remaining_services()) == 0:
                 score += feature.daily_users * max(0, self.days - feature.last_day_implemented)
         return score
+
+    @staticmethod
+    def print_trace(features: list[Feature], engineers: list[Engineer]):
+        for f in features:
+            len_impl = len(f.get_implemented_services())
+            len_total = len(f.services)
+            print(f"Feature {f.name} is implemented in ({len_impl}/{len_total}):")
+            for ss in f.get_implemented_services():
+                print(f"\t + {ss.name} (bin{ss.binary.number})")
+            for ss in f.get_remaining_services():
+                print(f"\t - {ss.name} (bin{ss.binary.number})")
+        print()
+        for e in engineers:
+            print(f"Engineer {e.id} finished in {e.days_past} days.")
+            for a in e.actions:
+                print(f"\t - {a}")
