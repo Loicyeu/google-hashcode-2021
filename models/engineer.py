@@ -1,6 +1,7 @@
 from models.binary import Binary
 from models.feature import Feature
 from models.service import Service
+from models.writer import Writer
 
 
 class Engineer:
@@ -13,6 +14,7 @@ class Engineer:
         self.days_for_binary = days_for_binary
         self.days_past = 0
         self.actions: list[str] = []
+        self.writer: Writer = Writer()
 
     def implement(self, feature: Feature, binary: Binary):
         """
@@ -29,6 +31,7 @@ class Engineer:
         self.days_past += days
         feature.last_day_implemented = max(feature.last_day_implemented, self.days_past)
         self.actions.append(f"impl {feature.name} {binary.number} in {days} days")
+        self.writer.addTask(self.id, f"impl {feature.name} {binary.number}")
 
     def move_service(self, service: Service, binary: Binary):
         """

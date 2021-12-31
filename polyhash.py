@@ -3,7 +3,9 @@
 
 """Module principal pour la mise en oeuvre du projet Poly#.
 """
-
+from models.challenge import Challenge
+from models.engineers import Engineers
+from models.writer import Writer
 from polyparser import parse_challenge
 from solver import solve
 from utils import get_ratios
@@ -21,4 +23,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     challenge, features = parse_challenge(args.challenge)
-    solve(challenge, get_ratios(features))
+    engineers: Engineers = solve(challenge, get_ratios(features))
+
+    Challenge.print_trace([f for f in features], engineers.get_all())
+    print(challenge.get_score([f for f in features]))
+    Writer().writeToFile()

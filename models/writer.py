@@ -11,7 +11,7 @@ class Singleton(type):
 class Writer(metaclass=Singleton):
 
     def __init__(self):
-        self.filename = 'solution.txt'
+        self.filename = 'solution1.txt'
         self.engineerTasks = dict()  # Key = Engineer number, Value = List of their tasks (i.e. ['wait 1', 'impl bar 1'])
 
     def addTask(self, engineerNumber, task):
@@ -24,8 +24,9 @@ class Writer(metaclass=Singleton):
         with open(self.filename, 'w') as f:
             f.write(str(len(self.engineerTasks)) + "\n")
             for key in self.engineerTasks:
-                f.write(str(key) + "\n")
-                for task in self.engineerTasks[key]:
+                tasks = self.engineerTasks[key]
+                f.write(str(len(tasks)) + "\n")
+                for task in tasks:
                     f.write(task + "\n")
 
 

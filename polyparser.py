@@ -40,7 +40,7 @@ def parse_challenge(filename: str) -> tuple[Challenge, list[Feature]]:
 
     features: list[Feature] = []
 
-    for j in range(i, len(line_list), 2):  # pas de 2
+    for j in range(i, len(line_list) - 1, 2):  # pas de 2
         line1 = line_list[j]
         line2 = line_list[j + 1]
         feature: Feature = Feature(line1[0], int(line1[2]), int(line1[3]))
