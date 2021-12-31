@@ -37,4 +37,8 @@ class Challenge:
             print(f"Engineer {e.id} finished in {e.days_past} days.")
             for a in e.actions:
                 print(f"\t - {a}")
-        return 0
+        score = 0
+        for feature in features:
+            if len(feature.get_remaining_services()) == 0:
+                score += feature.daily_users * max(0, self.days - feature.last_day_implemented)
+        return score

@@ -5,11 +5,12 @@ from models.service import Service
 class Feature:
     def __init__(self, name: str, difficulty: int, daily_users: int):
         from models.service import Service
-        self.name = name
-        self.difficulty = difficulty
-        self.daily_users = daily_users
+        self.name: str = name
+        self.difficulty: int = difficulty
+        self.daily_users: int = daily_users
         self.services: list[Service] = []
         self.implemented_services: set[Service] = set()
+        self.last_day_implemented: int = 0
 
     def __copy__(self):
         return Feature(self.name, self.difficulty, self.daily_users)

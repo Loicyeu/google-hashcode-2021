@@ -27,6 +27,7 @@ class Engineer:
         for i in range(self.days_past, self.days_past + days):
             binary.occuped[i] += 1
         self.days_past += days
+        feature.last_day_implemented = max(feature.last_day_implemented, self.days_past)
         self.actions.append(f"impl {feature.name} {binary.number} in {days} days")
 
     def move_service(self, service: Service, binary: Binary):
