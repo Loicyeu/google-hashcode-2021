@@ -12,6 +12,7 @@ class Engineer:
         self.id: int = id
         self.days_for_binary = days_for_binary
         self.days_past = 0
+        self.actions: list[str] = []
 
     def implement(self, feature: Feature, binary: Binary):
         """
@@ -20,8 +21,13 @@ class Engineer:
         :param feature: The feature to implement
         :param binary: The binary where to implement the feature.
         """
-        self.days_past = feature.difficulty + len(binary.services) + 0  # 0 -> ingineers on the binary
-        feature.implemented_services = set.union(feature.implemented_services, binary.services)
+        days = feature.difficulty + len(binary.services) + binary.occuped[self.days_past]
+        temp = set.intersection(set(binary.services), feature.services)
+        feature.implemented_services = set.union(feature.implemented_services, temp)
+        for i in range(self.days_past, self.days_past + days):
+            binary.occuped[i] += 1
+        self.days_past += days
+        self.actions.append(f"impl {feature.name} {binary.number} in {days} days")
 
     def move_service(self, service: Service, binary: Binary):
         """

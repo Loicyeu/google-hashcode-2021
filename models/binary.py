@@ -16,6 +16,7 @@ class Binary:
         else:
             self.number = number
         self.services: list[Service] = []
+        self.occuped: list[Optional[int]] = [0] * 1000 * 2  # time limit mult by coef of 2
         Binary.__number_of_binaries += 1
 
     def __str__(self):

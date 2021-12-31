@@ -4,7 +4,7 @@ sb 2
 sc 1
 sd 2
 se 0
-foo 3 3 100.
+foo 3 3 100
 sc sb sd
 bar 2 1 20
 sc sa

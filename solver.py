@@ -5,6 +5,7 @@
 """
 from models.challenge import Challenge
 from models.engineer import Engineer
+from models.engineers import Engineers
 from models.feature import Feature
 from utils import FeatureRatio
 
@@ -17,16 +18,22 @@ def solve(challenge: Challenge, features: FeatureRatio):
     :param features: a sorted list of features
     """
 
-    engineers = {}
-    for engineer in range(challenge.engineers):
-        engineers[engineer] = Engineer(engineer, challenge.days_for_binary)
+    # engineers = [Engineer(e, challenge.days_for_binary) for e in range(challenge.engineers)]
+    engineers = Engineers(challenge.engineers, challenge.days_for_binary)
 
-    feature: Feature = features[0][0]
-    for bin in feature.get_binaries():
-        engineers[1].implement(feature, bin)
+    for i in range(len(features)):
+        feature: Feature = features[i][0]
+        for j in range(len(feature.get_binaries())):
+            bin = feature.get_binaries()[j]
+            engineers.get_engineer().implement(feature, bin)
 
-    return None
+    # for t in features:
+    #     feature: Feature = t[0]
+    #     for bin in feature.get_binaries():
+    #         for engineer in engineers:
+    #             engineer.implement(feature, bin)
 
+    print(challenge.get_score([f[0] for f in features], engineers.get_all()))
 
-if __name__ == '__main__':
-    solve(Challenge(100, 2, 1, 1, 1), [])
+# if __name__ == '__main__':
+#     solve(Challenge(100, 2, 1, 1, 1), [])

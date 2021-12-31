@@ -48,7 +48,8 @@ def parse_challenge(filename: str) -> tuple[Challenge, list[Feature]]:
         for k in line2:
             service = (list(filter(lambda s: s.name == k, services)))[0]  # s est le nom d'un service
             service.features.append(feature)
-    print(challenge)
+            feature.services.append(service)
+    # print(challenge)
     return challenge, features
 
 

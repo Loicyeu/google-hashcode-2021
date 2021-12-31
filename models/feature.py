@@ -28,9 +28,10 @@ class Feature:
 
         :return: A list without duplicates
         """
-        return list(dict.fromkeys([s.binary for s in self.services]))
+        from utils import remove_duplicates
+        return remove_duplicates([s.binary for s in self.services])
 
-    def implemented_services(self) -> set[Service]:
+    def get_implemented_services(self) -> set[Service]:
         """
         Get all services where the feature is implemented_services
 
@@ -38,13 +39,13 @@ class Feature:
         """
         return self.implemented_services
 
-    def remaining_binaries(self) -> list[Binary]:
-        return [s.binary for s in self.remaining_services()]
+    def get_remaining_binaries(self) -> set[Binary]:
+        return set([s.binary for s in self.get_remaining_services()])
 
-    def remaining_services(self) -> list[Service]:
+    def get_remaining_services(self) -> set[Service]:
         """
         Get all remaining services where the feature is not yet implemented_services
 
         :return: List of service
         """
-        return [s for s in self.services not in self.implemented_services]
+        return set.difference(set(self.services), self.implemented_services)
