@@ -28,5 +28,5 @@ def solve(challenge: Challenge, features: FeatureRatio) -> Engineers:
             engineers.get_engineer().implement(feature, bin)
     return engineers
 
-    # Challenge.print_trace([f[0] for f in features], engineers.get_all())
-    # print(challenge.get_score([f[0] for f in features]))
+    # Challenge.print_trace([features[0] for features in features], engineers.get_all())
+    # print(challenge.get_score([features[0] for features in features]))

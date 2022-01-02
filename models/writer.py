@@ -1,4 +1,7 @@
 # Class Singleton from StackOverflow : https://stackoverflow.com/a/6798042/16027155
+from typing import Optional
+
+
 class Singleton(type):
     _instances = {}
 
@@ -11,8 +14,9 @@ class Singleton(type):
 class Writer(metaclass=Singleton):
 
     def __init__(self):
-        self.filename = 'solution1.txt'
-        self.engineerTasks = dict()  # Key = Engineer number, Value = List of their tasks (i.e. ['wait 1', 'impl bar 1'])
+        self.filename = 'solutions/solution.txt'
+        # Key = Engineer number, Value = List of their tasks (i.e. ['wait 1', 'impl bar 1'])
+        self.engineerTasks = dict()
 
     def addTask(self, engineerNumber, task):
         if engineerNumber in self.engineerTasks.keys():
@@ -20,14 +24,18 @@ class Writer(metaclass=Singleton):
         else:
             self.engineerTasks[engineerNumber] = [task]
 
-    def writeToFile(self):
-        with open(self.filename, 'w') as f:
+    def writeToFile(self, filename: Optional[str] = None):
+        with open(filename or self.filename, 'w') as f:
             f.write(str(len(self.engineerTasks)) + "\n")
             for key in self.engineerTasks:
                 tasks = self.engineerTasks[key]
                 f.write(str(len(tasks)) + "\n")
                 for task in tasks:
                     f.write(task + "\n")
+        self.reset()
+
+    def reset(self):
+        self.engineerTasks = dict()
 
 
 if __name__ == '__main__':
