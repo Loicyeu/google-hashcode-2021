@@ -1,4 +1,5 @@
 from models.engineer import Engineer
+from models.engineers import Engineers
 from models.feature import Feature
 
 
@@ -30,6 +31,18 @@ class Challenge:
             if len(feature.get_remaining_services()) == 0:
                 score += feature.daily_users * max(0, self.days - feature.last_day_implemented)
         return score
+
+    def is_implentable(self, feature: Feature, engineers: Engineers) -> tuple[bool, int]:
+        e_days: list[int] = []
+        for e in engineers.get_all():
+            e_days.append(e.days_past)
+        for b in feature.get_binaries():
+            min_past = min(e_days)
+            days = len(b.services) + feature.difficulty + min_past + b.occuped[min_past]
+            if days >= self.days:
+                return False, 0
+            e_days[e_days.index(min_past)] += days
+        return True, 0
 
     @staticmethod
     def print_trace(features: list[Feature], engineers: list[Engineer]):
