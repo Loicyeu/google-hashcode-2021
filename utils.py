@@ -25,5 +25,12 @@ def sort_features(func, features: list[Feature], challenge: Challenge, reverse: 
     return Features([r[0] for r in ratio])
 
 
+def get_ratios(func, features: list[Feature], challenge: Challenge, reverse: bool = False) -> FeatureRatio:
+    return sorted(
+        func(features, challenge),
+        key=lambda feat: feat[1],
+        reverse=not reverse)
+
+
 def remove_duplicates(l: list) -> list:
     return list(dict.fromkeys(l))

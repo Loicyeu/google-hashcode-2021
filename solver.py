@@ -22,16 +22,13 @@ def solve(challenge: Challenge, features: FeatureRatio) -> Engineers:
     """
 
     engineers = Engineers(challenge.engineers, challenge.days_for_binary, challenge.days)
-
     for i in range(len(features)):
         feature: Feature = features[i][0]
-        is_impl, score = challenge.is_implentable(feature, engineers)
-        if is_impl:
-            for j in range(len(feature.get_binaries())):
-                if engineers.finished():
-                    return engineers
-                bin = feature.get_binaries()[j]
-                engineers.get_engineer().implement(feature, bin)
+        for j in range(len(feature.get_binaries())):
+            if engineers.finished():
+                return engineers
+            bin = feature.get_binaries()[j]
+            engineers.get_engineer().implement(feature, bin)
     return engineers
 
 

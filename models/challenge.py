@@ -34,6 +34,7 @@ class Challenge:
 
     def is_implentable(self, feature: Feature, engineers: Engineers) -> tuple[bool, int]:
         e_days: list[int] = []
+        last_day_impl = 0
         for e in engineers.get_all():
             e_days.append(e.days_past)
         for b in feature.get_binaries():
@@ -41,20 +42,22 @@ class Challenge:
             days = len(b.services) + feature.difficulty + min_past + b.occuped[min_past]
             if days >= self.days:
                 return False, 0
-            e_days[e_days.index(min_past)] += days
-        return True, 0
+            idx = e_days.index(min_past)
+            e_days[idx] += days
+            last_day_impl = max(last_day_impl, e_days[idx])
+        return True, min(0, self.days - last_day_impl) * feature.daily_users
 
     @staticmethod
     def print_trace(features: list[Feature], engineers: list[Engineer]):
-        for f in features:
-            len_impl = len(f.get_implemented_services())
-            len_total = len(f.services)
-            print(f"Feature {f.name} is implemented in ({len_impl}/{len_total}):")
-            for ss in f.get_implemented_services():
-                print(f"\t + {ss.name} (bin{ss.binary.number})")
-            for ss in f.get_remaining_services():
-                print(f"\t - {ss.name} (bin{ss.binary.number})")
-        print()
+        # for f in features:
+        #     len_impl = len(f.get_implemented_services())
+        #     len_total = len(f.services)
+        #     print(f"Feature {f.name} is implemented in ({len_impl}/{len_total}):")
+        #     for ss in f.get_implemented_services():
+        #         print(f"\t + {ss.name} (bin{ss.binary.number})")
+        #     for ss in f.get_remaining_services():
+        #         print(f"\t - {ss.name} (bin{ss.binary.number})")
+        # print()
         for e in engineers:
             print(f"Engineer {e.id} finished in {e.days_past} days.")
             for a in e.actions:

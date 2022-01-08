@@ -7,8 +7,8 @@ from models.engineers import Engineers
 from models.ratios import sorting_ratios
 from models.writer import Writer
 from polyparser import parse_challenge
-from solver import solve2
-from utils import sort_features
+from solver import solve, solve2
+from utils import get_ratios, sort_features
 
 if __name__ == "__main__":
     # On fournit ici un exemple permettant de passer un simple
