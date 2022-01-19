@@ -56,6 +56,7 @@ où:
 
 ● Ii - Est le jour où la i-ème fonctionnalité a été lancée (nombre de jours nécessaires à la
 mettre pleinement en œuvre la i-ème fonctionnalité).
+
 Le score total est une somme des scores obtenus par chaque fonctionnalité lancée.
 
 ---
