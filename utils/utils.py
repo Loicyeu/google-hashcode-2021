@@ -1,13 +1,12 @@
 from models.challenge import Challenge
 from models.feature import Feature
-
-# from models.ratios import RatioLambda
 from models.features import Features
 
 FeatureRatio = list[tuple[Feature, float]]
 
 
-def sort_features(func, features: list[Feature], challenge: Challenge, reverse: bool = False) -> Features:
+def sort_features(func, features: list[Feature], challenge: Challenge,
+                  reverse: bool = False) -> Features:
     """
     Return a list of features sorted by a ratio created by a given function
     The first one will be fascinating to implement, the last one will be meh
@@ -32,5 +31,5 @@ def get_ratios(func, features: list[Feature], challenge: Challenge, reverse: boo
         reverse=not reverse)
 
 
-def remove_duplicates(l: list) -> list:
-    return list(dict.fromkeys(l))
+def remove_duplicates(_list: list) -> list:
+    return list(dict.fromkeys(_list))

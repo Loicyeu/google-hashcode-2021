@@ -1,7 +1,7 @@
 from models.binary import Binary
 from models.feature import Feature
 from models.service import Service
-from models.writer import Writer
+from utils.writer import Writer
 
 
 class Engineer:

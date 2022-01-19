@@ -3,9 +3,7 @@ from models.service import Service
 
 
 class Feature:
-    """
-    Represents a Feature of the challenge
-    """
+    """Represents a Feature of the challenge"""
 
     def __init__(self, name: str, difficulty: int, daily_users: int):
         """
@@ -43,7 +41,8 @@ class Feature:
 
         :return: A list of binaries without duplicates
         """
-        from utils import remove_duplicates
+        from utils.utils import remove_duplicates
+
         return remove_duplicates([s.binary for s in self.services])
 
     def get_remaining_binaries(self) -> set[Binary]:
@@ -56,7 +55,7 @@ class Feature:
 
     def get_remaining_services(self) -> set[Service]:
         """
-        Get all remaining services where the feature is not yet implemented_services
+        Get all remaining services where the feature is not yet in implemented_services
 
         :return: List of services
         """

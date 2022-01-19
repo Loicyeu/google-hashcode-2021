@@ -2,7 +2,7 @@ from typing import Callable
 
 from models.challenge import Challenge
 from models.feature import Feature
-from utils import FeatureRatio
+from utils.utils import FeatureRatio
 
 RatioLambda = Callable[[Feature, Challenge], FeatureRatio]
 
@@ -25,6 +25,6 @@ sorting_ratios: list[tuple[RatioLambda, str]] = [
 List of lambda/name of the ratio.
 
 The lambda stored allows the features to be sorted in a certain order.
-The different lambda are called by us as a ratio. Some of them have a explaination and other just have been created
-by pure hazard.
+The different lambda are called by us as a ratio. Some of them have 
+a explaination and other just have been created by pure hazard.
 """

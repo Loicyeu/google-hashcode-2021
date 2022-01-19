@@ -3,7 +3,9 @@ from typing import Optional
 
 class Binary:
     """Represents a binary of the challenge."""
-    __number_of_binaries: int = 0  # Used to keep trace of the total number of the binaries.
+
+    __number_of_binaries: int = 0
+    """Used to keep trace of the total number of the binaries."""
 
     def __init__(self, number: Optional[int]):
         """
@@ -19,8 +21,8 @@ class Binary:
             self.number: int = number
 
         self.services: list[Service] = []
-        self.occuped: list[Optional[int]] = [0] * 1000 * 2  # time limit multiplied by coef of 2
-        """Int array representing how many engineers work on the binary on the day symbolised by the index"""
+        self.occuped: list[Optional[int]] = [0] * 1000 * 2  # max theorical time multiplied by security coef of 2
+        """Int array representing how many engineers work on the binary on the day symbolised by the index."""
         Binary.__number_of_binaries += 1
 
     def __str__(self):

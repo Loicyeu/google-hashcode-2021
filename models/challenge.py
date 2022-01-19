@@ -4,9 +4,10 @@ from models.feature import Feature
 
 
 class Challenge:
-    """Represents the given challenge with all given information in the parsed file"""
+    """Represents the given challenge with all given information in the parsed file."""
 
-    def __init__(self, days: int, engineers: int, nb_features: int, nb_services: int, days_for_binary: int):
+    def __init__(self, days: int, engineers: int, nb_features: int,
+                 nb_services: int, days_for_binary: int):
         """
         Create and initialise the Challenge
 
@@ -75,7 +76,8 @@ class Challenge:
     @staticmethod
     def print_trace(features: list[Feature], engineers: list[Engineer]):
         """
-        Print in the terminal for every feature if it has been implemented or not. Anf for every engineer what they do.
+        Print in the terminal for every feature if it has been implemented or not.
+        And for every engineer what they do.
 
         :param features: The list of the features
         :param engineers: The list of the engineers

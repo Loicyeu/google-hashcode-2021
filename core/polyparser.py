@@ -21,7 +21,8 @@ def parse_challenge(filename: str) -> tuple[Challenge, list[Feature]]:
 
     first_line = line_list[0]
 
-    challenge: Challenge = Challenge(int(first_line[0]), int(first_line[1]), int(first_line[4]), int(first_line[2]),
+    challenge: Challenge = Challenge(int(first_line[0]), int(first_line[1]),
+                                     int(first_line[4]), int(first_line[2]),
                                      int(first_line[5]))
     services: list[Service] = []
 
@@ -46,12 +47,9 @@ def parse_challenge(filename: str) -> tuple[Challenge, list[Feature]]:
         feature: Feature = Feature(line1[0], int(line1[2]), int(line1[3]))
         features.append(feature)
         for k in line2:
-            service = (list(filter(lambda s: s.name == k, services)))[0]  # s est le nom d'un service
+            service = (list(filter(lambda s: s.name == k, services)))[
+                0]  # s est le nom d'un service
             service.features.append(feature)
             feature.services.append(service)
     # print(challenge)
     return challenge, features
-
-
-if __name__ == '__main__':
-    parse_challenge("challenge.txt")
