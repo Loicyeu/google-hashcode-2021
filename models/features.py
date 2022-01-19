@@ -6,12 +6,23 @@ from models.feature import Feature
 
 
 class Features:
+    """Allow to stock easily the features of the challenge"""
 
     def __init__(self, features: list[Feature]):
+        """
+        Create the "list" of features
+
+        :param features: The list of features
+        """
         self.features: list[Feature] = features
         self.remaining: list[Feature] = features.copy()
 
     def next_one(self) -> Optional[Feature]:
+        """
+        Get the next feature to implement
+
+        :return: A feature or None if there is no more features
+        """
         if len(self.remaining) == 0:
             return None
         return self.remaining[0]
@@ -20,9 +31,10 @@ class Features:
         """
         Return the next features to implement
 
-        :return: The next features
+        :param nb: The wanted number of next features
+        :return: A list of features
         """
-        return self.remaining[0:nb]
+        return self.remaining[0:max(1, nb)]
 
     def get_all(self) -> list[Feature]:
         return self.features

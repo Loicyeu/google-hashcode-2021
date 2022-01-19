@@ -6,13 +6,19 @@ from models.writer import Writer
 
 class Engineer:
     """
-    Ne peut pas être interrompu lors d'une de ses taches
+    Represents an engineer of the challenge
     """
 
     def __init__(self, id, days_for_binary):
+        """
+        Create a new engineer.
+
+        :param id: The engineer id
+        :param days_for_binary: the number of days need to create a new binary
+        """
         self.id: int = id
-        self.days_for_binary = days_for_binary
-        self.days_past = 0
+        self.days_for_binary: int = days_for_binary
+        self.days_past: int = 0
         self.actions: list[str] = []
         self.writer: Writer = Writer()
 
@@ -55,4 +61,10 @@ class Engineer:
         return Binary(None)
 
     def wait(self, days: int):
-        self.days_past += days
+        """
+        Wait for the specified days
+
+        :param days: the number of days to wait
+        :return: Nothing
+        """
+        self.days_past += max(0, days)

@@ -21,3 +21,10 @@ sorting_ratios: list[tuple[RatioLambda, str]] = [
     (lambda f, c: [(f, f.daily_users / f.difficulty / len(f.get_binaries())) for f in f], "Users/Diff/Bin"),
     (lambda f, c: [(f, f.difficulty / len(f.get_binaries()) / len(f.services)) for f in f], "Diff/Bin/Services"),
 ]
+"""
+List of lambda/name of the ratio.
+
+The lambda stored allows the features to be sorted in a certain order.
+The different lambda are called by us as a ratio. Some of them have a explaination and other just have been created
+by pure hazard.
+"""

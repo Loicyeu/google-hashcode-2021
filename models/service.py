@@ -1,10 +1,17 @@
 class Service:
+    """Represents a Service of the challenge"""
     from models.binary import Binary
 
     def __init__(self, name: str, binary: Binary):
+        """
+        Create a new Service
+
+        :param name: The name of the service
+        :param binary: The binary where the service is stored
+        """
         from models.feature import Feature
         from models.binary import Binary
-        self.name = name
+        self.name: str = name
         self.features: list[Feature] = []
         self.binary: Binary = binary
 
