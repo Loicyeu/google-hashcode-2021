@@ -30,7 +30,7 @@ def solve(challenge: Challenge, features: FeatureRatio) -> Engineers:
     return engineers
 
 
-def solve2(challenge: Challenge, features: Features) -> Engineers:
+def solve2(challenge: Challenge, features: Features):
     """
     Solve a given challenge.
     The strategy used is to sort the feature in a certain order.
@@ -63,7 +63,7 @@ def solve2(challenge: Challenge, features: Features) -> Engineers:
         features.set_done(feature)
         for j in range(len(feature.get_binaries())):
             if engineers.finished():
-                return engineers
+                return
             bin = feature.get_binaries()[j]
             engineers.get_engineer().implement(feature, bin)
-    return engineers
+    return
