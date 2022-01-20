@@ -5,51 +5,46 @@ from models.features import Features
 from utils.utils import FeatureRatio
 
 
-def solve(challenge: Challenge, features: FeatureRatio) -> Engineers:
+def solve(challenge: Challenge, features: FeatureRatio):
     """
     Solve a given challenge.
-    The strategy used is to sort the feature in a certain order.
-    Then we take the first feature and we split the
-    differents binaries to implement with the engineers that worked the least.
-    If a feature cannot be implemented during
-    the challenge days, we skip it.
+    The strategy used is to get the feature in a certain order. (ratios)
+    Then we take the first feature and we split the differents binaries to implement with the
+    engineers that worked the least.
 
     :param challenge: The given challenge
     :param features: A sorted list of features
     """
 
-    engineers = Engineers(challenge.engineers, challenge.days_for_binary,
-                          challenge.days)
+    engineers = Engineers(challenge.engineers, challenge.days_for_binary, challenge.days)
     for i in range(len(features)):
         feature: Feature = features[i][0]
         for j in range(len(feature.get_binaries())):
             if engineers.finished():
-                return engineers
+                return
             bin = feature.get_binaries()[j]
             engineers.get_engineer().implement(feature, bin)
-    return engineers
+    return
 
 
 def solve2(challenge: Challenge, features: Features):
     """
     Solve a given challenge.
     The strategy used is to sort the feature in a certain order.
-    Then we take the first feature and we split the
-    differents binaries to implement with the engineers that worked the least.
-    If a feature cannot be implemented during
-    the challenge days, we skip it.
+    Then we take the firsts features and calculate the score produced by them and implement the best of them.
+    For the choosen one, we split the differents binaries to implement with the engineers that worked the least.
+    If a feature cannot be implemented during the challenge days, we skip it.
 
     :param challenge: The given challenge
     :param features: A sorted list of features
     """
 
-    engineers = Engineers(challenge.engineers, challenge.days_for_binary,
-                          challenge.days)
+    engineers = Engineers(challenge.engineers, challenge.days_for_binary, challenge.days)
 
     while True:
         next_features = features.next(5)
         if len(next_features) == 0:
-            break
+            return
         feat_score = []
         for f in next_features:
             is_implentable, score = challenge.is_implentable(f, engineers)
@@ -66,4 +61,3 @@ def solve2(challenge: Challenge, features: Features):
                 return
             bin = feature.get_binaries()[j]
             engineers.get_engineer().implement(feature, bin)
-    return
