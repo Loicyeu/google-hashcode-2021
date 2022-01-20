@@ -37,10 +37,9 @@ if __name__ == "__main__":
     """
     Choisir la stratégie a appliquer
     """
-    parser = argparse.ArgumentParser(description='Solve Poly# challenge.')
-    parser.add_argument('challenge', type=str,
-                        help='challenge definition filename',
-                        metavar="challenges/an_example.txt")
+    parser = argparse.ArgumentParser(description='[N]apoléon Solver Poly# challenge.')
+    parser.add_argument('-c', '--challenge', type=str, help='challenge definition filename',
+                        metavar="challenges/an_example.txt", required=True)
     args = parser.parse_args()
-    # strategie1(args.challenge)
-    strategie2(args.challenge)
+    strategie1(args.challenge)
+    # strategie2(args.challenge)
