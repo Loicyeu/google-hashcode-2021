@@ -2,11 +2,11 @@ from models.engineer import Engineer
 
 
 class Engineers:
-    """Allow to stock all the engineers"""
+    """Allows to stock all the engineers"""
 
     def __init__(self, number, days_for_binary, challenge_days):
         """
-        Create the "list" of engineers and create all the engineers.
+        Creates the "list" of engineers and create all the engineers.
 
         :param number: The number of engineers of the challenge
         :param days_for_binary: The number of days to create a binary
@@ -17,7 +17,7 @@ class Engineers:
 
     def get_engineer(self) -> Engineer:
         """
-        Get the engineer that work the less. The one with days_past minimal
+        Gets the engineer that worked the less. The one with minimal days_past
 
         :return: An engineer
         """
@@ -26,7 +26,7 @@ class Engineers:
 
     def get_all(self) -> list[Engineer]:
         """
-        Get all the engineers
+        Gets all the engineers
 
         :return: Engineers
         """
@@ -35,9 +35,9 @@ class Engineers:
 
     def finished(self) -> bool:
         """
-        Allow to know if all the engineers exceed the days of the challenge or not.
+        Allows to know if all the engineers exceeded the days of the challenge or not.
 
-        :return: True if all engineers exceed the number of days of the challenge, False instead.
+        :return: True if all engineers exceeded the number of days of the challenge, False instead.
         """
         for e in self.engineers:
             if e.days_past < self.challenge_days:

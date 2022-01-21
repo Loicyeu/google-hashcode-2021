@@ -4,7 +4,7 @@ class Service:
 
     def __init__(self, name: str, binary: Binary):
         """
-        Create a new Service
+        Creates a new Service
 
         :param name: The name of the service
         :param binary: The binary where the service is stored

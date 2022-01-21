@@ -9,7 +9,7 @@ def solve(challenge: Challenge, features: FeatureRatio):
     """
     Solve a given challenge.
     The strategy used is to get the feature in a certain order. (ratios)
-    Then we take the first feature and we split the differents binaries to implement with the
+    Then we take the first feature and we split the different binaries to implement with the
     engineers that worked the least.
 
     :param challenge: The given challenge
@@ -31,8 +31,8 @@ def solve2(challenge: Challenge, features: Features):
     """
     Solve a given challenge.
     The strategy used is to sort the feature in a certain order.
-    Then we take the firsts features and calculate the score produced by them and implement the best of them.
-    For the choosen one, we split the differents binaries to implement with the engineers that worked the least.
+    Then we take the first features and calculate the score produced by them and implement the best of them.
+    For the chosen one, we split the different binaries to implement with the engineers that worked the least.
     If a feature cannot be implemented during the challenge days, we skip it.
 
     :param challenge: The given challenge

@@ -5,12 +5,12 @@ from utils.singleton import Singleton
 
 class Writer(metaclass=Singleton):
     """
-    Represent the writer for the exit file.
+    Represents the writer for the exit file.
     """
 
     def __init__(self):
         """
-        Create the Writer only once and then give the instance already created.
+        Creates the Writer only once and then gives the instance already created.
         """
         self.filename = 'solutions/solution.txt'
         # Key = Engineer ID, Value = List of their tasks (i.e. ['wait 1', 'impl bar 1'])
@@ -18,7 +18,7 @@ class Writer(metaclass=Singleton):
 
     def addTask(self, engineerId, task):
         """
-        Add a task done by an engineer to the buffer engineerTasks.
+        Adds a task done by an engineer to the buffer engineerTasks.
 
         :param engineerId: The id of the engineer
         :param task: The task done by the engineer, pre-formated and ready to print in the file
@@ -30,7 +30,7 @@ class Writer(metaclass=Singleton):
 
     def writeToFile(self, filename: Optional[str] = None):
         """
-        Write the buffer in the exit file.
+        Writes the buffer in the exit file.
 
         :param filename: The name of the file, None for default name.
         """
@@ -45,6 +45,6 @@ class Writer(metaclass=Singleton):
 
     def reset(self):
         """
-        Delete and reset the buffer.
+        Deletes and reset the buffer.
         """
         self.engineerTasks = dict()

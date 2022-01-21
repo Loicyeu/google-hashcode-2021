@@ -8,8 +8,8 @@ FeatureRatio = list[tuple[Feature, float]]
 def sort_features(func, features: list[Feature], challenge: Challenge,
                   reverse: bool = False) -> Features:
     """
-    Return a list of features sorted by a ratio created by a given function
-    The first one will be fascinating to implement, the last one will be meh
+    Returns a list of features sorted by a ratio created by a given function
+    The first one will be interesting to implement, the last one will be meh
 
     :param func: The function to create ratios for sorting
     :param features: The list of features to sort

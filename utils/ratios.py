@@ -26,5 +26,5 @@ List of lambda/name of the ratio.
 
 The lambda stored allows the features to be sorted in a certain order.
 The different lambda are called by us as a ratio. Some of them have 
-a explaination and other just have been created by pure hazard.
+a explanation and other just have been created by pure hazard.
 """

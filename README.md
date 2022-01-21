@@ -16,7 +16,7 @@
 
 L'objectif de ce projet est d'organiser le travail d'ingénieurs qui doivent livrer des fonctionnalités qui raviront les
 utilisateurs autant que possible. Pour cela, les ingénieurs doivent travailler de manière individuelle sur des
-services (ranger dans des binaires) qui composent les dites fonctionnalités. Pour résoudre ce problème, on pose:
+services (rangés dans des binaires) qui composent les dites fonctionnalités. Pour résoudre ce problème, on pose :
 
 ### Les fonctionnalités.
 
@@ -37,10 +37,10 @@ fonctionnalité peut rapporter) afin de satisfaire les utilisateurs. Plus une fo
 plus elle touche un nombre important d'utilisateur. Il est donc important de planifier les tâches dans la limite de
 temps imparti afin que les utilisateurs puissent bénéficier de ces nouvelles fonctionnalités. En prenant compte ces
 paramètres, on obtient un score mit à jour à chaque fin de travail d'un ingénieur (qui si le temps le permet, continuera
-de travailler avant la fin). A savoir, les fonctionnalités qui sont entièrement implémentées hors temps imparti sont
+de travailler avant la fin). À savoir, les fonctionnalités qui sont entièrement implémentées hors temps imparti sont
 autorisées mais ne rapportent aucun point.
 
-Pour arriver à ce résultat, les ingénieurs ont plusieurs possibilités:
+Pour arriver à ce résultat, les ingénieurs ont plusieurs possibilités :
 
 - Implémenter un service.
 - Déplacer un service.
@@ -62,11 +62,11 @@ Le score total est une somme des scores obtenus par chaque fonctionnalité lanc�
 
 ## III - Lancement du projet
 
-Au lancement du projet, nous avons commencé par prendre du recul sur le projet. Nous avons donc chacun de notre coté,
+Au lancement du projet, nous avons commencé par prendre du recul sur le projet. Nous avons donc chacun de notre côté,
 analyser et pris des notes sur le sujet en vu d'une mise en commun des informations et des premières idées. Le premier
-Brainstorming nous a permis de mettre au clair plusieurs points du sujet comme les différentes contraintes que doivent
+brainstorming nous a permis de mettre au clair plusieurs points du sujet comme les différentes contraintes que doivent
 respecter les ingénieurs (au niveau du temps et de la répartition des tâches pour éviter qu'ils ne travaillent tous sur
-le même binaire). Compte tenu du savoir faire de chacun, nous avons décider de répartir les tâches (voir ci-dessous) et
+le même binaire). Compte tenu du savoir faire de chacun, nous avons décidé de répartir les tâches (voir ci-dessous) et
 de travailler avec l'outil 'Code With Me' de Pycharm.
 
 ---
@@ -75,8 +75,8 @@ de travailler avec l'outil 'Code With Me' de Pycharm.
 
 ### Partie conception
 
-- Lancement du projet : Equipe complète
-- Imagination solutions possibles : Equipe complète
+- Lancement du projet : Équipe complète
+- Imagination solutions possibles : Équipe complète
 
 ### Partie réalisation / implémentation
 
@@ -97,7 +97,7 @@ de travailler avec l'outil 'Code With Me' de Pycharm.
 
 ## V - Procédure d'installation
 
-Se rendre sur le [dépot GitLab du projet](https://gitlab.univ-nantes.fr/polyhash-n/polyhash) et télécharger ou cloner le
+Se rendre sur le [dépôt GitLab du projet](https://gitlab.univ-nantes.fr/polyhash-n/polyhash) et télécharger ou cloner le
 git.
 
 ```shell
@@ -108,7 +108,7 @@ $ git clone git@gitlab.univ-nantes.fr:polyhash-n/polyhash.git
 
 ## VI - Procédure d'exécution
 
-Une fois l'installation effectué, l'application est prête a être lancé. Pour se faire lancer la commande suivante dans
+Une fois l'installation effectuée, l'application est prête à être lancée. Pour se faire lancer, la commande suivante dans
 le dossier racine :
 
 ```shell
@@ -131,24 +131,24 @@ optional arguments:
 
 ---
 
-## VII - Détail des stratégies mises en oeuvre et commentaire à propos des performances (temps d'exécution et place mémoire)
+## VII - Détail des stratégies mises en œuvre et commentaire à propos des performances (temps d'exécution et place mémoire)
 
-Nous avons fait le choix dans nos stratégies de ne pas utiliser la possibilités de créer de nouveaux binaires ou de
-déplacer des services entre deux binaires. Nous nous sommes aperçus que le cout en temps d'un déplacement de service
-était bien top important au vu du gain qu'il peut apporter. En effet, en plus d'être couteux en temps, il nécéssite
-qu'aucun ingénieur ne travail sur les deux binaires concernés durant tout le temps du déplacement.
+Nous avons fait le choix dans nos stratégies de ne pas utiliser les possibilités de créer de nouveaux binaires ou de
+déplacer des services entre deux binaires. Nous nous sommes aperçus que le coût en temps d'un déplacement de service
+était bien top important au vu du gain qu'il peut apporter. En effet, en plus d'être coûteux en temps, il nécessite
+qu'aucun ingénieur ne travaille sur les deux binaires concernés durant tout le temps du déplacement.
 
-Nous nous sommes dirigé vers une solution basé sur une implémentation de features trié dans un certain ordre a l'aide de
-ratio calculés.
+Nous nous sommes dirigés vers une solution basée sur une implémentation de features triées dans un certain ordre a l'aide de
+ratios calculés.
 
-**Score réalisé par les deux stratégies :**
+**Scores réalisés par les deux stratégies :**
 
 |                 | An example | Breath of choice | Const opti | Distinction | Expect max | Five thousand |
 |-----------------|:----------:|:----------------:|:----------:|:-----------:|:----------:|:-------------:|
 | **Stratégie 1** |    540     |    11 552 060    | 24 778 969 | 73 299 742  | 35 821 807 |  111 547 554  |
 | **Stratégie 2** |    540     |    5 543 662     | 24 881 270 | 73 185 071  | 35 821 807 |  111 280 279  |
 
-**Temps d'éxecutions (pour un ratio) :**
+**Temps d'exécutions (pour un ratio) :**
 
 |              | An example | Breath of choice | Const opti | Distinction | Expect max | Five thousand |
 |--------------|:----------:|:----------------:|:----------:|:-----------:|:----------:|:-------------:|
@@ -156,27 +156,27 @@ ratio calculés.
 | **Solver 1** |  0.153 ms  |       7 ms       |   204 ms   |    15 ms    |   17 ms    |     7 ms      |
 | **Solver 2** |  0.152 ms  |      31 ms       |   493 ms   |    72 ms    |   102 ms   |     32 ms     |
 
-### Statégie n°1
+### Stratégie n°1
 
-La première statégie est simple, elle consiste simplement a trier les features dans un ordre précis (utilisation des
-ratios). Une fois les features triées, elle sont données dans l'ordre à chaque ingénieur. L'ingénieur choisi est celui
+La première stratégie est simple, elle consiste simplement à trier les features dans un ordre précis (utilisation des
+ratios). Une fois les features triées, elles sont données dans l'ordre à chaque ingénieur. L'ingénieur choisi est celui
 qui a passé le moins de temps à travailler (chaque ingénieur ayant sa propre "temporalité"). L'algorithme s'arrête de
-lui même lorsqu'il n'y a plus de features a implémenter ou lorsque tous les ingénieurs ont dépassé la limite de temps du
+lui-même lorsqu'il n'y a plus de features à implémenter ou lorsque tous les ingénieurs ont dépassé la limite de temps du
 challenge.
 
 ### Stratégie n°2
 
-La deuxième statégie est une version amélioré de la première. Celle-ci en plus de vérifier que la prochaine feature est
-bien implémentable dans les délais regardes les x prochaines feature. Elle les compares par rapport au score que
-celles-ci produirons. Le solveur fera alors implémenter la feature a l'ingénieur ayant travaillé le moins. L'algorithme
-s'arrête de lui même lorsqu'il n'y a plus de feature a implémenter dans les délais ou que tous les ingénieurs ont
+La deuxième stratégie est une version améliorée de la première. Celle-ci, en plus de vérifier que la prochaine feature est
+bien implémentable dans les délais, regarde les x prochaines features. Elle les compare par rapport au score que
+celles-ci produiront. Le solveur fera alors implémenter la feature a l'ingénieur ayant travaillé le moins. L'algorithme
+s'arrête de lui-même lorsqu'il n'y a plus de feature à implémenter dans les délais ou que tous les ingénieurs ont
 dépassé la limite de temps du challenge.
 
-### Statégie expérimentale
+### Stratégie expérimentale
 
-Imaginée et conceptualisé par Killian et Nathan, cette stratégie a pour but de faire prendre a l'application tous les
-chemins possible. Cet a dire qu'elle teste toutes les possibilités et donc toutes les solutions. Cette stratégie n'est
-resté qu'a l'étape de prototype.
+Imaginée et conceptualisé par Killian et Nathan, cette stratégie a pour but de faire prendre à l'application tous les
+chemins possible. C'est-à-dire qu'elle teste toutes les possibilités et donc toutes les solutions. Cette stratégie n'est
+restée qu'a l'étape de prototype.
 
 ---
 
@@ -214,14 +214,14 @@ fonction et données utiles pour l'application mais qui ne rentrait pas dans les
 
 ## IX - Bugs et limitations connues
 
-La princiaple limitation connue est que le solver n'utilise pas la création de binaire et le déplacement de service. \
+La principle limitation connue est que le solver n'utilise pas la création de binaire et le déplacement de service. \
 Le parser est également peu optimisé et donc assez lent.
 
 Le solver 2, censé normalement augmenter les points ou tout au moins les maintenir possède un bug quand on utilise le
 fichier `breath of choice` car les points obtenus sont divisés par deux. \
 Le scorer ne tient pas compte du bon ordre pour le travail des ingénieurs lorsqu'ils sont plusieurs à commencer à
 travailler en même temps sur le même binaire. Normalement l'ingénieur ayant le numéro le plus faible (le plus haut dans
-le fichier) ne doit pas se prendre de pénalité, notre scorer distribut des pénalités mais pas sur les bons ingénieurs.
+le fichier) ne doit pas se prendre de pénalité, notre scorer distribue des pénalités mais pas sur les bons ingénieurs.
 
 ---
 

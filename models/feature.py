@@ -7,7 +7,7 @@ class Feature:
 
     def __init__(self, name: str, difficulty: int, daily_users: int):
         """
-        Create a new feature.
+        Creates a new feature.
 
         :param name: feature name
         :param difficulty: feature difficulty
@@ -37,7 +37,7 @@ class Feature:
 
     def get_binaries(self) -> list[Binary]:
         """
-        Get all binaries where the feature must be implemented (all binaries, implemented or not)
+        Gets all binaries where the feature must be implemented (all binaries, implemented or not)
 
         :return: A list of binaries without duplicates
         """
@@ -47,7 +47,7 @@ class Feature:
 
     def get_remaining_binaries(self) -> set[Binary]:
         """
-        Get all remaining binaries where the contained serivces dont implement the feature
+        Gets all remaining binaries where its services dont have the feature implemented
 
         :return: A set of binaries
         """
@@ -55,7 +55,7 @@ class Feature:
 
     def get_remaining_services(self) -> set[Service]:
         """
-        Get all remaining services where the feature is not yet in implemented_services
+        Gets all remaining services where the feature is not yet in implemented_services
 
         :return: List of services
         """

@@ -9,7 +9,7 @@ class Challenge:
     def __init__(self, days: int, engineers: int, nb_features: int,
                  nb_services: int, days_for_binary: int):
         """
-        Create and initialise the Challenge
+        Creates and initialises the Challenge
 
         :param days: the number of days given to resolve the challenge
         :param engineers: the number of engineers to resolve the challenge
@@ -38,10 +38,10 @@ class Challenge:
 
     def get_score(self, features: list[Feature]) -> int:
         """
-        Calculate the score of the challenge at any time.
+        Calculates the score of the challenge at any time.
 
-        :param features: the list of feature of the challenge
-        :return: The actual score of the challenge
+        :param features: the list of features of the challenge
+        :return: The current score of the challenge
         """
         score: int = 0
         for feature in features:
@@ -55,7 +55,7 @@ class Challenge:
         If it cant be, the result is (False, 0)
         Else it's True and the score if the feature will be implemented
 
-        :param feature: The feature that want to be tested
+        :param feature: The feature that needs to be tested
         :param engineers: The list of engineers
         :return: A tuple (implementable, score)
         """

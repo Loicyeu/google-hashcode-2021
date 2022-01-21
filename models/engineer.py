@@ -11,10 +11,10 @@ class Engineer:
 
     def __init__(self, id, days_for_binary):
         """
-        Create a new engineer.
+        Creates a new engineer.
 
         :param id: The engineer id
-        :param days_for_binary: the number of days need to create a new binary
+        :param days_for_binary: the number of days needed to create a new binary
         """
         self.id: int = id
         self.days_for_binary: int = days_for_binary
@@ -24,7 +24,7 @@ class Engineer:
 
     def implement(self, feature: Feature, binary: Binary):
         """
-        Implement a feature in a specified binary on its services.
+        Implements a feature in a specified binary on its services.
 
         :param feature: The feature to implement
         :param binary: The binary where to implement the feature.
@@ -41,7 +41,7 @@ class Engineer:
 
     def move_service(self, service: Service, binary: Binary):
         """
-        Move the service from its binary to another binary.
+        Moves the service from its binary to another binary.
 
         :param service: The service to move.
         :param binary: The targeted binary.
@@ -53,7 +53,7 @@ class Engineer:
 
     def create_binary(self) -> Binary:
         """
-        Create a new Binary
+        Creates a new Binary
 
         :return: The newly created binary
         """
@@ -62,7 +62,7 @@ class Engineer:
 
     def wait(self, days: int):
         """
-        Wait for the specified days
+        Waits for the specified days
 
         :param days: the number of days to wait
         :return: Nothing

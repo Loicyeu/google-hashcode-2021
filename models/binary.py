@@ -5,11 +5,11 @@ class Binary:
     """Represents a binary of the challenge."""
 
     __number_of_binaries: int = 0
-    """Used to keep trace of the total number of the binaries."""
+    """Used to keep track of the total number of the binaries."""
 
     def __init__(self, number: Optional[int]):
         """
-        Create a new empty Binary.
+        Creates a new empty Binary.
 
         :param number: The number of the binary or None to auto-calculate it.
         """

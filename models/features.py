@@ -6,11 +6,11 @@ from models.feature import Feature
 
 
 class Features:
-    """Allow to stock easily the features of the challenge"""
+    """Allows to stock easily the features of the challenge"""
 
     def __init__(self, features: list[Feature]):
         """
-        Create the "list" of features
+        Creates the "list" of features
 
         :param features: The list of features
         """
@@ -19,7 +19,7 @@ class Features:
 
     def next_one(self) -> Optional[Feature]:
         """
-        Get the next feature to implement
+        Gets the next feature to implement
 
         :return: A feature or None if there is no more features
         """
@@ -29,7 +29,7 @@ class Features:
 
     def next(self, nb: int = 1) -> Feature | list[Feature]:
         """
-        Return the next features to implement
+        Returns the next features to implement
 
         :param nb: The wanted number of next features
         :return: A list of features
