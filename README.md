@@ -228,7 +228,7 @@ Le scorer ne tient pas compte du bon ordre pour le travail des ingénieurs lorsq
 travailler en même temps sur le même binaire. Normalement l'ingénieur ayant le numéro le plus faible (le plus haut dans
 le fichier) ne doit pas se prendre de pénalité, notre scorer distribue des pénalités mais pas sur les bons ingénieurs.
 
-Le solver 3, ne peut pas produire de solution pour les challenges autre que `An example` du fait qu'il tente toute les
+Le solver 3, ne peut pas produire de solution pour les challenges autre que `An example` du fait qu'il tente toutes les
 combinaisons de solutions.
 
 ---
