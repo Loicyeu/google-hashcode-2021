@@ -1,8 +1,5 @@
 # Projet Poly# - [N]apoléon
 
----
----
-
 ## I - L'équipe (N)
 
 - **Blain Killian** *<killian.blain@etu.univ-nantes.fr>*
@@ -178,6 +175,14 @@ Imaginée et conceptualisé par Killian et Nathan, cette stratégie a pour but d
 chemins possible. Cet a dire qu'elle teste toutes les possibilités et donc toutes les solutions. Cette stratégie n'est
 resté qu'a l'étape de prototype.
 
+### Stratégie 3
+
+La troisième stratégie est l'application de la stratégie expérimentale avec des threads python. Celui-ci n'est pas
+fonctionnel en l'état du au test de toutes les solutions possible (sans prendre en compte les déplacement de service et
+créations de binaire). Ce solveur a part est disponible sur la branche `solver-v2`. Il n'a volontairement pas été
+intégré dans la répartition du travail de l'équipe. Il n'est pas documenté et il n'y a aucune garanti qu'il fonctionne
+correctement.
+
 ---
 
 ## VIII - Description de l'organisation du code (en packages, modules, classes, fonctions)
@@ -222,6 +227,9 @@ fichier `breath of choice` car les points obtenus sont divisés par deux. \
 Le scorer ne tient pas compte du bon ordre pour le travail des ingénieurs lorsqu'ils sont plusieurs à commencer à
 travailler en même temps sur le même binaire. Normalement l'ingénieur ayant le numéro le plus faible (le plus haut dans
 le fichier) ne doit pas se prendre de pénalité, notre scorer distribut des pénalités mais pas sur les bons ingénieurs.
+
+Le solver 3, ne peut pas produire de solution pour les challenges autre que `An example` du fait qu'il tente toute les
+combinaisons de solutions.
 
 ---
 
